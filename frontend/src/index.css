@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  body { @apply bg-bg text-text; font-size: 14px; }
+  * { @apply border-border; }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-muted rounded-full; }
+}
+@layer components {
+  .btn { @apply inline-flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors duration-150 disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-green text-black hover:bg-green-dim; }
+  .btn-ghost { @apply btn bg-transparent text-dim hover:text-text hover:bg-surface border border-border; }
+  .btn-danger { @apply btn bg-red-bg text-red border border-red/20 hover:bg-red/20; }
+  .input { @apply w-full bg-surface border border-border rounded-md px-3 py-2 text-text placeholder-dim text-sm focus:outline-none focus:border-green/50 focus:ring-1 focus:ring-green/20 transition-colors duration-150; }
+  .card { @apply bg-surface border border-border rounded-lg; }
+  .label { @apply block text-xs text-dim mb-1 font-medium uppercase tracking-wide; }
+  .badge-green { @apply inline-flex items-center gap-1 text-green bg-green-bg border border-green/20 text-xs font-medium px-2 py-0.5 rounded; }
+  .badge-red { @apply inline-flex items-center gap-1 text-red bg-red-bg border border-red/20 text-xs font-medium px-2 py-0.5 rounded; }
+  .badge-muted { @apply inline-flex items-center gap-1 text-dim bg-surface border border-border text-xs font-medium px-2 py-0.5 rounded; }
+  .page-title { @apply text-lg font-semibold text-text; }
+  .table-row { @apply border-b border-border hover:bg-white/[0.02] transition-colors; }
+  .table-cell { @apply px-4 py-3 text-sm; }
+  .table-head { @apply px-4 py-2.5 text-left text-xs text-dim uppercase tracking-wider font-medium; }
+}
