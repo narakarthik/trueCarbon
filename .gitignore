@@ -1,0 +1,27 @@
+# Build
+target/
+build/
+*.class
+*.jar
+*.war
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / local config
+.env
+application-local.properties
+application-local.yml
+
+# Logs
+*.log
+
+# Node
+node_modules/
+dist/

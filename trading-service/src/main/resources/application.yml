@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: trading-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/truecarbon}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:Mysql@123}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: trading_schema
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    schemas: trading_schema
+    default-schema: trading_schema
+server:
+  port: 8082
+jwt:
+  secret: ${JWT_SECRET:5a7134743777217a25432a462d4a614e645267556b58703273357638792f423f}
+  access-expiration-ms: 900000
+user-service:
+  base-url: ${USER_SERVICE_URL:http://localhost:8081}
+  internal-api-key: ${INTERNAL_API_KEY:local-internal-key-change-in-prod}
+cors:
+  allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
